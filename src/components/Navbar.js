@@ -12,7 +12,7 @@ const Nav = () => {
   return (
     <NavContainer>
       <div className="nav-center">
-        <div classNAme="nav-header">
+        <div className="nav-header">
           <Link to="/">
             <img src={logo} alt="comfy sloth" />
           </Link>
@@ -25,7 +25,7 @@ const Nav = () => {
             const { id, text, url } = link;
             return (
               <li key={id}>
-                <Link to={url}></Link>
+                <Link to={url}>{text}</Link>
               </li>
             );
           })}
