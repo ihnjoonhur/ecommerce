@@ -9,9 +9,19 @@ import { CartProvider } from "./context/cart_context";
 import { UserProvider } from "./context/user_context";
 import { Auth0Provider } from "@auth0/auth0-react";
 
-ReactDOM.render(
+// ReactDOM.render(
+//   <ProductsProvider>
+//     <App />
+//   </ProductsProvider>,
+//   document.getElementById("root")
+// );
+
+// Use createRoot instead of ReactDOM.render
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// Wrap the root application with the ProductsProvider
+root.render(
   <ProductsProvider>
     <App />
-  </ProductsProvider>,
-  document.getElementById("root")
+  </ProductsProvider>
 );

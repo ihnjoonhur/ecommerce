@@ -15,10 +15,10 @@ import {
 
 const initialState = {
   // Define your initial state here if needed
-  products: [],
-  sidebarOpen: false,
-  loading: false,
-  error: null,
+  // products: [],
+  isSidebarOpen: false,
+  // loading: false,
+  // error: null,
   // Add other properties as needed
 };
 
@@ -35,32 +35,19 @@ export const ProductsProvider = ({ children }) => {
   const closeSidebar = () => {
     dispatch({ type: SIDEBAR_CLOSE });
   };
-  useEffect(() => {
-    openSidebar();
-  }, []);
-
   return (
-    <ProductsContext.Provider value="products context">
+    <ProductsContext.Provider
+      value={{
+        ...state,
+        openSidebar,
+        closeSidebar,
+        // Add other actions and functions here
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );
 };
-
-// // Add more actions and functions as neede
-
-//   return (
-//     <ProductsContext.Provider
-//       value={{
-//         ...state,
-//         openSidebar,
-//         closeSidebar,
-//         // Add other actions and functions here
-//       }}
-//     >
-//       {children}
-//     </ProductsContext.Provider>
-//   );
-// };
 
 export const useProductsContext = () => {
   return useContext(ProductsContext);
