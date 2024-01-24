@@ -25,32 +25,38 @@ const initialState = {
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  // Define your actions and functions here
-  const openSidebar = () => {
-    dispatch({ type: SIDEBAR_OPEN });
-  };
-
-  const closeSidebar = () => {
-    dispatch({ type: SIDEBAR_CLOSE });
-  };
-
-  // Add more actions and functions as needed
-
   return (
-    <ProductsContext.Provider
-      value={{
-        ...state,
-        openSidebar,
-        closeSidebar,
-        // Add other actions and functions here
-      }}
-    >
+    <ProductsContext.Provider value="products context">
       {children}
     </ProductsContext.Provider>
   );
 };
+// const [state, dispatch] = useReducer(reducer, initialState);
+
+// // Define your actions and functions here
+// const openSidebar = () => {
+//   dispatch({ type: SIDEBAR_OPEN });
+// };
+
+// const closeSidebar = () => {
+//   dispatch({ type: SIDEBAR_CLOSE });
+// };d
+
+// // Add more actions and functions as neede
+
+//   return (
+//     <ProductsContext.Provider
+//       value={{
+//         ...state,
+//         openSidebar,
+//         closeSidebar,
+//         // Add other actions and functions here
+//       }}
+//     >
+//       {children}
+//     </ProductsContext.Provider>
+//   );
+// };
 
 export const useProductsContext = () => {
   return useContext(ProductsContext);
